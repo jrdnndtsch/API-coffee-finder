@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="style.css">
+	
+	<title>here or there</title>
+</head>
+<body>
+
+	<nav class="topNav clearfix">
+	<div class="logo">
+		<p class="logoTop">&#8859;</p>
+	</div><!-- end.logo -->
+		<div class="menu">
+			<p class="navicon">&#9776;</p>
+			<ul class="dropDown">
+				<li class= "link">About</li>
+				<li>Facebook</li>
+				<li>Twitter</li>
+			</ul><!-- end.menu -->
+		</div><!-- end.menu -->
+	</nav><!-- end .topNav -->
+	<div class="about">
+		<p class= "close">&#10005;</p>
+		<div class="innerWrapper">
+			<h2><span class= "logo">&#8859;</span> either here or there</h2>
+			<p>Either here or there assists with the difficult decisions in life: should you get coffee before you embark or once you arrive.</p>
+		</div> <!-- end .innerWrapper -->	
+	</div><!-- end .about -->
+
+	<div class="hero">
+	
+	</div><!-- end .hero -->
+	<div class="whereTo">
+		<form action="#" class= "question">
+		  <input type="text" name="dest" class="destInput" placeholder= "where are you going?">
+		  <!-- <a href="#dynamic" class="submitButton">submit</a> -->
+		  <input type="submit" class="submitButton" name= "get coffee">
+		</form>
+		
+	</div><!-- end.whereTo -->
+
+	<div id="dynamic">
+		<div id="map-canvas"></div>
+		
+		<div class="shops"></div> <!-- end .shops -->
+	</div><!-- end.dynamicContent -->
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places&sensor=false"></script>
+	<script src= "script.js"></script>
+</body>
+</html>

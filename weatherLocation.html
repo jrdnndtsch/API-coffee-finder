@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Get Weather</title>
+</head>
+<body>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script>
+	var weatherApp = {};
+
+	weatherApp.url = 'http://api.wunderground.com/api/61f0a55cb00602dc/conditions/q/Ontario/Ajax.json';
+
+
+	weatherApp.getWeather = function(){
+
+		$.ajax({
+			url : weatherApp.url,
+			type : 'GET',
+			dataType : 'json',
+			success : function(data) {
+
+			// PASS 'data.current_observation' into weatherApp.updateWeather // 
+			weatherApp.updateWeather(data.current_observation);
+			}
+		}); //end ajax
+	}
+
+
+	navigator.geolocation.getCurrentPosition(function(position) {
+	  console.log(position);
+	});
+	</script>
+</body>
+</html>

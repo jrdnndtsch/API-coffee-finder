@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Geolocation</title>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+</head>
+<body>
+
+<form action="#">
+	<label for="dest" class="destLabel">Where to:</label>
+	<input type="text" name="dest" class="destInput">
+	<input type="submit" class="submitButton">
+</form>
+
+<div id= "mapCanvas"></div>
+
+<style>
+	 html, body, #mapCanvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+</style>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+	
+  <script>
+   
+
+    var app = {};
+    app.endPoint = "";
+
+    app.startPoint = navigator.geolocation.getCurrentPosition(function(position) {
+     console.log(position);
+    });
+
+
+    app.init = function(){
+
+    };
+
+    app.getDestination = function() {
+    	app.endPoint = $('.destInput').val();
+    };
+
+  var directionsDisplay;
+  var directionsService = new google.maps.DirectionsService();
+  var map;
+
+  function initialize() {
+    directionsDisplay = new google.maps.DirectionsRenderer();
+    var mapOptions = {
+      zoom: 14,
+      center: haight
+    }
+    map = new google.maps.Map(document.getElementById('mapCanvas'), mapOptions);
+    directionsDisplay.setMap(map);
+  }
+
+  function calcRoute(startlat, startlng, endlat, endlng) {
+	  var haight = nexw google.maps.LatLng(37.7699298, -122.4469157);
+	  var oceanBeach = new google.maps.LatLng(37.7683909618184, -122.51089453697205);
+    var selectedMode = document.getElementById('mode').value;
+    var request = {
+        origin: haight,
+        destination: oceanBeach,
+        // Note that Javascript allows us to access the constant
+        // using square brackets and a string value as its
+        // "property."
+        travelMode: google.maps.TravelMode.WALKING
+    };
+    directionsService.route(request, function(response, status) {	
+      if (status == google.maps.DirectionsStatus.OK) {
+        directionsDisplay.setDirections(response);
+      }
+    });
+  }
+
+
+
+    $(function() {
+		$('form').on('submit', function(e){
+			e.preventDefault();
+			app.getDestination();
+			$('.destInput').val(' ');
+		});//end submit
+
+		initialize();
+
+
+    }); //end ready
+
+	
+
+
+
+  </script>
+  
+</body>
+</html>
